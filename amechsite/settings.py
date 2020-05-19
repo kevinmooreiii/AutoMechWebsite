@@ -12,9 +12,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# Set various paths of needed for Django
+PROJ_PATH = os.path.dirname(os.path.abspath(__file__))
+BASE_PATH = os.path.dirname(PROJ_PATH)
+STATIC_ROOT = os.path.join(PROJ_PATH, 'static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'amechsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_PATH, 'db.sqlite3'),
     }
 }
 
@@ -117,5 +118,4 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
 STATIC_URL = '/static/'
