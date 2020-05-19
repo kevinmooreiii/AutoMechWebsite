@@ -14,8 +14,7 @@ import os
 
 # Set various paths of needed for Django
 PROJ_PATH = os.path.dirname(os.path.abspath(__file__))
-BASE_PATH = os.path.dirname(PROJ_PATH)
-STATIC_ROOT = os.path.join(PROJ_PATH, 'static')
+BASE_PATH = os.path.dirname(os.path.dirname(PROJ_PATH))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -118,4 +117,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_PATH, 'static')
+# STATIC_ROOT = os.path.join(PROJ_PATH, 'static/')  # ROOT CANT MATCH BELOW?
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [ 
+    os.path.join(PROJ_PATH, 'static')
+]
